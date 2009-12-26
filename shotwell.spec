@@ -6,6 +6,7 @@ License:		LGPLv2+ and CC-BY-SA
 Group:			Graphics
 Url:			http://www.yorba.org/shotwell/
 Source0:		http://www.yorba.org/download/shotwell/0.4/shotwell-%{version}.tar.bz2
+BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:		vala >= 0.7.9
 BuildRequires:		gettext
 BuildRequires:		gtk+2-devel
