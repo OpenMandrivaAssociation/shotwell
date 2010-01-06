@@ -1,5 +1,5 @@
 Name:			shotwell
-Version:		0.4.1
+Version:		0.4.2
 Release:		%mkrel 1
 Summary:		A photo organizer designed for GNOME
 License:		LGPLv2+ and CC-BY-SA
@@ -9,14 +9,14 @@ Source0:		http://www.yorba.org/download/shotwell/0.4/shotwell-%{version}.tar.bz2
 BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:		vala >= 0.7.9
 BuildRequires:		gettext
-BuildRequires:		gtk+2-devel
-BuildRequires:		hal-devel
-BuildRequires:		libgee-devel
-BuildRequires:		webkitgtk-devel
-BuildRequires:		sqlite-devel
-BuildRequires:		gphoto2-devel
-BuildRequires:		libexif-devel
-BuildRequires:		unique-devel
+BuildRequires:		gtk+2-devel >= 2.14.4
+BuildRequires:		hal-devel >= 0.5.11
+BuildRequires:		libgee-devel >= 0.5.0
+BuildRequires:		webkitgtk-devel >= 1.1.5
+BuildRequires:		sqlite-devel >= 3.5.9
+BuildRequires:		gphoto2-devel >= 2.4.2
+BuildRequires:		libexif-devel >= 0.6.16
+BuildRequires:		unique-devel >= 1.0.0
 
 %description
 Shotwell is a digital photo organizer designed for the GNOME desktop 
