@@ -18,6 +18,7 @@ BuildRequires:		sqlite-devel >= 3.5.9
 BuildRequires:		gphoto2-devel >= 2.4.2
 BuildRequires:		libexif-devel >= 0.6.16
 BuildRequires:		unique-devel >= 1.0.0
+BuildRequires:		libgudev-devel
 
 %description
 Shotwell is a digital photo organizer designed for the GNOME desktop 
