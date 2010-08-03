@@ -6,18 +6,22 @@ License:		LGPLv2+ and CC-BY-SA
 Group:			Graphics
 Url:			http://www.yorba.org/shotwell/
 Source0:		http://www.yorba.org/download/shotwell/0.5/shotwell-%{version}.tar.bz2
+Patch0:			shotwell-0.6.1-vala-0.9.patch
 BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:		vala >= 0.7.9
 BuildRequires:		gettext
 BuildRequires:		gtk+2-devel >= 2.14.4
-BuildRequires:		hal-devel >= 0.5.11
 BuildRequires:		libgee-devel >= 0.5.0
 BuildRequires:		webkitgtk-devel >= 1.1.5
 BuildRequires:		sqlite-devel >= 3.5.9
 BuildRequires:		gphoto2-devel >= 2.4.2
-BuildRequires:		libexif-devel >= 0.6.16
+BuildRequires:		libgexiv2-devel >= 0.1.0
 BuildRequires:		unique-devel >= 1.0.0
+BuildRequires:		libsoup-devel
+BuildRequires:		dbus-glib-devel
+BuildRequires:		libGConf2-devel
 BuildRequires:		libgudev-devel
+BuildRequires:		libraw-devel
 
 %description
 Shotwell is a digital photo organizer designed for the GNOME desktop 
@@ -27,9 +31,12 @@ mode, and export them to share with others.
 
 %prep
 %setup -q
+%patch0 -p2
 
 %build
-%configure2_5x --disable-schemas-install
+./configure --prefix=/usr --disable-schemas-install --assume-pkgs
+sed -i -e 's/\\n/\n/g' configure.mk
+sed -i -e 's/^CFLAGS = .*$/CFLAGS = %{optflags} %{ldflags}/' Makefile
 %make
 
 %install
