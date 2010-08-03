@@ -1,5 +1,5 @@
 Name:			shotwell
-Version:		0.5.2
+Version:		0.6.1
 Release:		%mkrel 1
 Summary:		A photo organizer designed for GNOME
 License:		LGPLv2+ and CC-BY-SA
