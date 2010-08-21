@@ -1,12 +1,11 @@
 Name:			shotwell
-Version:		0.6.1
+Version:		0.7.0
 Release:		%mkrel 1
 Summary:		A photo organizer designed for GNOME
 License:		LGPLv2+ and CC-BY-SA
 Group:			Graphics
 Url:			http://www.yorba.org/shotwell/
-Source0:		http://www.yorba.org/download/shotwell/0.5/shotwell-%{version}.tar.bz2
-Patch0:			shotwell-0.6.1-vala-0.9.patch
+Source0:		http://www.yorba.org/download/shotwell/0.7/shotwell-%{version}.tar.bz2
 BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:		vala >= 0.7.9
 BuildRequires:		gettext
@@ -31,7 +30,6 @@ mode, and export them to share with others.
 
 %prep
 %setup -q
-%patch0 -p2
 
 %build
 ./configure --prefix=/usr --disable-schemas-install --assume-pkgs
@@ -53,6 +51,7 @@ rm -rf %{buildroot}
 %doc AUTHORS MAINTAINERS README COPYING NEWS THANKS
 %{_bindir}/%{name}
 %{_datadir}/%{name}
+%{_datadir}/gnome/help/%{name}
 %{_datadir}/applications/%{name}*.desktop
 %{_iconsdir}/hicolor/scalable/apps/%{name}.svg
 %{_sysconfdir}/gconf/schemas/%{name}.schemas
