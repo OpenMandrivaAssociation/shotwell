@@ -7,7 +7,7 @@ Group:			Graphics
 Url:			http://www.yorba.org/shotwell/
 Source0:		http://www.yorba.org/download/shotwell/0.7/shotwell-%{version}.tar.bz2
 BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:		vala >= 0.7.9
+BuildRequires:		vala >= 0.9.5
 BuildRequires:		gettext
 BuildRequires:		gtk+2-devel >= 2.14.4
 BuildRequires:		libgee-devel >= 0.5.0
