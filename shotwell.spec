@@ -1,11 +1,11 @@
 Name:			shotwell
-Version:		0.7.2
+Version:		0.8.0
 Release:		%mkrel 1
 Summary:		A photo organizer designed for GNOME
 License:		LGPLv2+ and CC-BY-SA
 Group:			Graphics
 Url:			http://www.yorba.org/shotwell/
-Source0:		http://www.yorba.org/download/shotwell/0.7/shotwell-%{version}.tar.bz2
+Source0:		http://www.yorba.org/download/shotwell/0.8/shotwell-%{version}.tar.bz2
 BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:		vala >= 0.9.5
 BuildRequires:		gettext
@@ -46,6 +46,9 @@ GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 DISABLE_ICON_UPDATE=1 %makeinstall_std
 %clean
 rm -rf %{buildroot}
 
+%preun
+%preun_uninstall_gconf_schemas %name
+
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc AUTHORS MAINTAINERS README COPYING NEWS THANKS
@@ -53,5 +56,5 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}
 %{_datadir}/gnome/help/%{name}
 %{_datadir}/applications/%{name}*.desktop
-%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
+%{_iconsdir}/hicolor/*/apps/%{name}.*
 %{_sysconfdir}/gconf/schemas/%{name}.schemas
