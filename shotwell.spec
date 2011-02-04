@@ -22,6 +22,7 @@ BuildRequires:		libGConf2-devel
 BuildRequires:		libgudev-devel
 BuildRequires:		libraw-devel
 BuildRequires:		libjson-glib-devel
+BuildRequires:		libgomp-devel
 
 %description
 Shotwell is a digital photo organizer designed for the GNOME desktop 
