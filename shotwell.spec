@@ -1,13 +1,14 @@
 Name:			shotwell
-Version:		0.8.1
+Version:		0.9.1
 Release:		%mkrel 1
 Summary:		A photo organizer designed for GNOME
 License:		LGPLv2+ and CC-BY-SA
 Group:			Graphics
 Url:			http://www.yorba.org/shotwell/
 Source0:		http://www.yorba.org/download/shotwell/0.8/shotwell-%{version}.tar.bz2
+Patch0:			shotwell-0.9.1-link.patch
 BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:		vala >= 0.9.5
+BuildRequires:		vala >= 0.12.0
 BuildRequires:		gettext
 BuildRequires:		gtk+2-devel >= 2.14.4
 BuildRequires:		libgee-devel >= 0.5.0
@@ -23,6 +24,7 @@ BuildRequires:		libgudev-devel
 BuildRequires:		libraw-devel
 BuildRequires:		libjson-glib-devel
 BuildRequires:		libgomp-devel
+BuildRequires:		gnome-vfs2-devel
 
 %description
 Shotwell is a digital photo organizer designed for the GNOME desktop 
@@ -32,16 +34,18 @@ mode, and export them to share with others.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
-./configure --prefix=/usr --disable-schemas-install --assume-pkgs
+%define _disable_ld_no_undefined 1
+./configure --lib=%{_lib} --prefix=/usr --disable-schemas-install --assume-pkgs --disable-icon-update --disable-desktop-update
 sed -i -e 's/\\n/\n/g' configure.mk
 sed -i -e 's/^CFLAGS = .*$/CFLAGS = %{optflags} %{ldflags}/' Makefile
-%make
+%make LDFLAGS="%ldflags"
 
 %install
 rm -rf %{buildroot}
-GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 DISABLE_ICON_UPDATE=1 %makeinstall_std
+%makeinstall_std
 
 %find_lang %{name}
 
@@ -55,6 +59,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc AUTHORS MAINTAINERS README COPYING NEWS THANKS
 %{_bindir}/%{name}
+%{_libdir}/%{name}
 %{_datadir}/%{name}
 %{_datadir}/gnome/help/%{name}
 %{_datadir}/applications/%{name}*.desktop
