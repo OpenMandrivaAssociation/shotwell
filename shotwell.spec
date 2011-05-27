@@ -6,7 +6,7 @@ License:		LGPLv2+ and CC-BY-SA
 Group:			Graphics
 Url:			http://www.yorba.org/shotwell/
 Source0:		http://www.yorba.org/download/shotwell/0.10/shotwell-%{version}.tar.bz2
-Patch0:			shotwell-0.9.1-link.patch
+Patch0:			shotwell-0.10-link.patch
 BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:		vala >= 0.12.0
 BuildRequires:		gettext
@@ -47,7 +47,7 @@ sed -i -e 's/^CFLAGS = .*$/CFLAGS = %{optflags} %{ldflags}/' Makefile
 rm -rf %{buildroot}
 %makeinstall_std
 
-%find_lang %{name}
+%find_lang %{name} --all-name
 
 %clean
 rm -rf %{buildroot}
@@ -58,7 +58,7 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc AUTHORS MAINTAINERS README COPYING NEWS THANKS
-%{_bindir}/%{name}
+%{_bindir}/*
 %{_libdir}/%{name}
 %{_datadir}/%{name}
 %{_datadir}/gnome/help/%{name}
