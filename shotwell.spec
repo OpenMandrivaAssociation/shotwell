@@ -1,6 +1,6 @@
 Name:			shotwell
 Version:		0.11.5
-Release:		%mkrel 1
+Release:		%mkrel 2
 Summary:		A photo organizer designed for GNOME
 License:		LGPLv2+ and CC-BY-SA
 Group:			Graphics
@@ -45,6 +45,7 @@ sed -i -e 's/^CFLAGS = .*$/CFLAGS = %{optflags} %{ldflags}/' Makefile
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+rm -rf %{buildroot}/%{_datadir}/glib-2.0/schemas/*
 
 %find_lang %{name} --all-name
 
@@ -62,7 +63,7 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}
 %{_datadir}/gnome/help/%{name}
 %{_datadir}/GConf/gsettings/%{name}.convert
-%{_datadir}/glib-2.0/schemas/*
+#%{_datadir}/glib-2.0/schemas/*
 %{_datadir}/applications/%{name}*.desktop
 %{_iconsdir}/hicolor/*/apps/%{name}.*
 #% {_sysconfdir}/gconf/schemas/ % {name}.schemas
