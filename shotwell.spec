@@ -9,7 +9,7 @@ Source0:		http://www.yorba.org/download/shotwell/0.11/shotwell-%{version}.tar.bz
 Requires:		yelp >= 2.30.2
 Requires:		dconf
 BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:		vala >= 0.12.0
+BuildRequires:		vala = 0.12.1
 BuildRequires:		gettext
 BuildRequires:		gtk+2-devel >= 2.14.4
 BuildRequires:		libgee-devel >= 0.5.0
