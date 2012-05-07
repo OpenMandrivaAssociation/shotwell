@@ -1,31 +1,29 @@
-Name:			shotwell
-Version:		0.11.6
-Release:		1
-Summary:		A photo organizer designed for GNOME
-License:		LGPLv2+ and CC-BY-SA
-Group:			Graphics
-Url:			http://www.yorba.org/shotwell/
-Source0:		http://www.yorba.org/download/shotwell/0.11/shotwell-%{version}.tar.bz2
-Requires:		yelp >= 2.30.2
-Requires:		dconf
-BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:		vala = 0.12.1
-BuildRequires:		gettext
-BuildRequires:		gtk+2-devel >= 2.14.4
-BuildRequires:		libgee-devel >= 0.5.0
-BuildRequires:		webkitgtk-devel >= 1.1.5
-BuildRequires:		sqlite-devel >= 3.5.9
-BuildRequires:		gphoto2-devel >= 2.4.2
-BuildRequires:		libgexiv2-devel >= 0.1.0
-BuildRequires:		unique-devel >= 1.0.0
-BuildRequires:		libsoup-devel
-BuildRequires:		dbus-glib-devel
-BuildRequires:		libGConf2-devel
-BuildRequires:		libgudev-devel
-BuildRequires:		libraw-devel
-BuildRequires:		libjson-glib-devel
-BuildRequires:		libgomp-devel
-BuildRequires:		gnome-vfs2-devel
+%define _disable_ld_no_undefined	1
+%define Werror_cflags			%nil
+
+%define url_ver		 %(echo %{version} | cut -d "." -f -2)
+
+Name:		shotwell
+Version:	0.12.2
+Release:	1
+Summary:	A photo organizer designed for GNOME
+License:	LGPLv2+ and CC-BY-SA
+Group:		Graphics
+Url:		http://www.yorba.org/shotwell/
+Source0:	http://www.yorba.org/download/%{name}/%{url_ver}/%{name}-%{version}.tar.bz2
+BuildRequires:	vala
+BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
+BuildRequires:	pkgconfig(gdk-3.0)
+BuildRequires:	pkgconfig(gexiv2)
+BuildRequires:	pkgconfig(gee-1.0)
+BuildRequires:	pkgconfig(libsoup-2.4)
+BuildRequires:	pkgconfig(webkitgtk-3.0)
+BuildRequires:	pkgconfig(gudev-1.0)
+BuildRequires:	pkgconfig(libexif)
+BuildRequires:	pkgconfig(libgphoto2)
+BuildRequires:	pkgconfig(unique-3.0)
+BuildRequires:	pkgconfig(libraw)
+BuildRequires:	pkgconfig(rest-0.7)
 
 %description
 Shotwell is a digital photo organizer designed for the GNOME desktop 
@@ -34,37 +32,32 @@ organize them in various ways, view them in full-window or fullscreen
 mode, and export them to share with others.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}
 
 %build
-%define _disable_ld_no_undefined 1
-./configure --lib=%{_lib} --prefix=/usr --disable-schemas-install --assume-pkgs --disable-icon-update --disable-desktop-update
-sed -i -e 's/\\n/\n/g' configure.mk
-sed -i -e 's/^CFLAGS = .*$/CFLAGS = %{optflags} %{ldflags}/' Makefile
-%make LDFLAGS="%ldflags"
+%before_configure
+./configure \
+	--prefix=%{_prefix} \
+	--lib=%{_lib} \
+	--disable-schemas-compile \
+	--disable-desktop-update \
+	--disable-icon-update
+
+%make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
-rm -rf %{buildroot}/%{_datadir}/glib-2.0/schemas/*
 
 %find_lang %{name} --all-name
 
-%clean
-rm -rf %{buildroot}
-
-%preun
-%preun_uninstall_gconf_schemas %name
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc AUTHORS MAINTAINERS README COPYING NEWS THANKS
 %{_bindir}/*
 %{_libdir}/%{name}
 %{_datadir}/%{name}
 %{_datadir}/gnome/help/%{name}
-%{_datadir}/GConf/gsettings/%{name}.convert
-#%{_datadir}/glib-2.0/schemas/*
 %{_datadir}/applications/%{name}*.desktop
 %{_iconsdir}/hicolor/*/apps/%{name}.*
-#% {_sysconfdir}/gconf/schemas/ % {name}.schemas
+%{_datadir}/GConf/gsettings/shotwell.convert
+%{_datadir}/glib-2.0/schemas/org.yorba.shotwell*.gschema.xml
+
