@@ -4,8 +4,8 @@
 %define url_ver		 %(echo %{version} | cut -d "." -f -2)
 
 Name:		shotwell
-Version:	0.13.1
-Release:	3
+Version:	0.14.1
+Release:	1
 Summary:	A photo organizer designed for GNOME
 License:	LGPLv2+ and CC-BY-SA
 Group:		Graphics
