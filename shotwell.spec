@@ -13,33 +13,35 @@ Url:		http://www.yorba.org/shotwell/
 Source0:	http://www.yorba.org/download/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 # Updated Russian translation from upstream
 Patch0:		shotwell-0.14.1.ru.patch
+Patch1:		shotwell-0.14.1-libraw15.patch
 BuildRequires:	vala
-BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(gdk-3.0)
+BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(gexiv2) >= 0.4.90
 BuildRequires:	pkgconfig(gee-1.0)
-BuildRequires:	pkgconfig(libsoup-2.4)
-BuildRequires:	pkgconfig(webkitgtk-3.0)
-BuildRequires:	pkgconfig(gudev-1.0)
-BuildRequires:	pkgconfig(libexif)
-BuildRequires:	pkgconfig(libgphoto2)
-BuildRequires:	pkgconfig(unique-3.0)
-BuildRequires:	pkgconfig(libraw)
-BuildRequires:	pkgconfig(rest-0.7)
-BuildRequires:	pkgconfig(gstreamer-plugins-base-0.10)
 BuildRequires:	pkgconfig(gstreamer-0.10)
 BuildRequires:	pkgconfig(gstreamer-pbutils-0.10)
+BuildRequires:	pkgconfig(gstreamer-plugins-base-0.10)
+BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
+BuildRequires:	pkgconfig(libexif)
+BuildRequires:	pkgconfig(libgphoto2)
+BuildRequires:	pkgconfig(libraw)
+BuildRequires:	pkgconfig(libsoup-2.4)
+BuildRequires:	pkgconfig(rest-0.7)
+BuildRequires:	pkgconfig(unique-3.0)
+BuildRequires:	pkgconfig(webkitgtk-3.0)
 
 %description
-Shotwell is a digital photo organizer designed for the GNOME desktop 
-environment. It allows you to import photos from disk or camera, 
-organize them in various ways, view them in full-window or fullscreen 
+Shotwell is a digital photo organizer designed for the GNOME desktop
+environment. It allows you to import photos from disk or camera,
+organize them in various ways, view them in full-window or fullscreen
 mode, and export them to share with others.
 
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %before_configure
