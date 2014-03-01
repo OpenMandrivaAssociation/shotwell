@@ -65,4 +65,6 @@ mode, and export them to share with others.
 %{_iconsdir}/hicolor/*/apps/%{name}.*
 %{_datadir}/GConf/gsettings/shotwell.convert
 %{_datadir}/glib-2.0/schemas/org.yorba.shotwell*.gschema.xml
+%{_datadir}/appdata/shotwell.appdata.xml
+
 
