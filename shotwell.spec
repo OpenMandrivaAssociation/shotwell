@@ -5,15 +5,12 @@
 
 Summary:	A photo organizer designed for GNOME
 Name:		shotwell
-Version:	0.14.1
-Release:	6
+Version:	0.15.0
+Release:	1
 License:	LGPLv2+ and CC-BY-SA
 Group:		Graphics
 Url:		http://www.yorba.org/shotwell/
 Source0:	http://www.yorba.org/download/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
-# Updated Russian translation from upstream
-Patch0:		shotwell-0.14.1.ru.patch
-Patch1:		shotwell-0.14.1-libraw15.patch
 BuildRequires:	vala
 BuildRequires:	pkgconfig(gdk-3.0)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
@@ -40,8 +37,6 @@ mode, and export them to share with others.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 %build
 %before_configure
