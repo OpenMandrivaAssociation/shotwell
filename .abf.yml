@@ -1,4 +1,5 @@
 removed_sources:
   shotwell-0.14.1.tar.xz: 7fa0fc21938b7627411d6d6c6c78c262bd6b756c
-sources:
   shotwell-0.15.0.tar.xz: 85063251f9977ee338a4f2ee9600deb32d187d60
+sources:
+  shotwell-0.20.1.tar.xz: af42d1385fa4e288b25a4804ccb934806151d861
