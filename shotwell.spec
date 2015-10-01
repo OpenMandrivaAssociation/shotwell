@@ -1,12 +1,12 @@
-%define _disable_ld_no_undefined	1
-%define Werror_cflags			%nil
+%define _disable_ld_no_undefined 1
+%define Werror_cflags %nil
 
 %define url_ver		%(echo %{version} | cut -d "." -f -2)
 
 Summary:	A photo organizer designed for GNOME
 Name:		shotwell
 Version:	0.22.0
-Release:	2
+Release:	3
 License:	LGPLv2+ and CC-BY-SA
 Group:		Graphics
 Url:		http://www.yorba.org/shotwell/
@@ -67,5 +67,3 @@ mode, and export them to share with others.
 %{_datadir}/GConf/gsettings/shotwell.convert
 %{_datadir}/glib-2.0/schemas/org.yorba.shotwell*.gschema.xml
 %{_datadir}/appdata/shotwell.appdata.xml
-
-
