@@ -11,6 +11,7 @@ License:	LGPLv2+ and CC-BY-SA
 Group:		Graphics
 Url:		http://www.yorba.org/shotwell/
 Source0:	http://www.yorba.org/download/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Patch1:		shotwell-0.22.0-webkit2.patch
 BuildRequires:	vala
 BuildRequires:	pkgconfig(gdk-3.0)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
@@ -28,7 +29,7 @@ BuildRequires:	pkgconfig(libraw)
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(rest-0.7)
 BuildRequires:	pkgconfig(unique-3.0)
-BuildRequires:	pkgconfig(webkitgtk-3.0)
+BuildRequires:	pkgconfig(webkit2gtk-4.0)
 BuildRequires:	gomp-devel
 
 %description
@@ -39,6 +40,7 @@ mode, and export them to share with others.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 %before_configure
