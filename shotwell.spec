@@ -73,7 +73,7 @@ find %{buildroot} -name 'lib%{name}-plugin-common.so' -delete
 %{_bindir}/*
 %{_libdir}/%{name}/
 %/usr/libexec/%{name}/
-%{_datadir}/%{name}/
+#{_datadir}/%{name}/
 #{_datadir}/gnome/help/%{name}
 %{_datadir}/applications/%{name}*.desktop
 %{_iconsdir}/hicolor/*/apps/%{name}.*
