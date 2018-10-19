@@ -5,14 +5,18 @@
 
 Summary:	A photo organizer designed for GNOME
 Name:		shotwell
-Version:	0.22.0
-Release:	4
+Version:	0.30.1
+Release:	1
 License:	LGPLv2+ and CC-BY-SA
 Group:		Graphics
 Url:		http://www.yorba.org/shotwell/
-Source0:	http://www.yorba.org/download/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
-Patch1:		shotwell-0.22.0-webkit2.patch
+Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+#Patch1:		shotwell-0.22.0-webkit2.patch
 BuildRequires:	vala
+BuildRequires:	vala-devel
+BuildRequires:	pkgconfig(vapigen)
+BuildRequires:	meson
+BuildRequires:	pkgconfig(atk)
 BuildRequires:	pkgconfig(gdk-3.0)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(gexiv2) >= 0.4.90
@@ -21,15 +25,19 @@ BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gstreamer-1.0)
 BuildRequires:	pkgconfig(gstreamer-pbutils-1.0)
 BuildRequires:	pkgconfig(gstreamer-plugins-base-1.0)
+BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libexif)
 BuildRequires:	pkgconfig(libgphoto2)
 BuildRequires:	pkgconfig(libraw)
 BuildRequires:	pkgconfig(libsoup-2.4)
+BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(rest-0.7)
 BuildRequires:	pkgconfig(unique-3.0)
 BuildRequires:	pkgconfig(webkit2gtk-4.0)
+BuildRequires:	pkgconfig(libgdata)
+BuildRequires:	pkgconfig(gcr-3)
 BuildRequires:	gomp-devel
 
 %description
@@ -43,20 +51,19 @@ mode, and export them to share with others.
 %apply_patches
 
 %build
-%before_configure
-./configure \
-	--prefix=%{_prefix} \
-	--lib=%{_lib} \
-	--disable-schemas-compile \
-	--disable-desktop-update \
-	--disable-icon-update
-
-%make
+%meson
+%meson_build
 
 %install
-%makeinstall_std
+# otherwise gettext always returns English text regardless of LANGUAGE asked
+export LANG=en_US.utf8
+%meson_install || :
 
-%find_lang %{name} --all-name
+# we don't want these
+find %{buildroot} -name '*.la' -delete
+find %{buildroot} -name 'lib%{name}-plugin-common.so' -delete
+
+%find_lang %{name} --all-name --with-gnome
 
 %files -f %{name}.lang
 %doc AUTHORS MAINTAINERS README COPYING NEWS THANKS
