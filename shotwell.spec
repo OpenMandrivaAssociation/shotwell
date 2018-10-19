@@ -39,6 +39,7 @@ BuildRequires:	pkgconfig(webkit2gtk-4.0)
 BuildRequires:	pkgconfig(libgdata)
 BuildRequires:	pkgconfig(gcr-3)
 BuildRequires:	gomp-devel
+BuildRequires:	pkgconfig(sqlite3)
 
 %description
 Shotwell is a digital photo organizer designed for the GNOME desktop
