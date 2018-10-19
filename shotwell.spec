@@ -72,7 +72,7 @@ find %{buildroot} -name 'lib%{name}-plugin-common.so' -delete
 %license COPYING
 %{_bindir}/*
 %{_libdir}/%{name}/
-%/usr/libexec/%{name}/
+#/usr/libexec/%{name}/
 #{_datadir}/%{name}/
 #{_datadir}/gnome/help/%{name}
 %{_datadir}/applications/%{name}*.desktop
