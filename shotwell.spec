@@ -72,11 +72,15 @@ find %{buildroot} -name 'lib%{name}-plugin-common.so' -delete
 %license COPYING
 %{_bindir}/*
 %{_libdir}/%{name}/
-#/usr/libexec/%{name}/
+%{_libexecdir}/%{name}/*
 #{_datadir}/%{name}/
 #{_datadir}/gnome/help/%{name}
 %{_datadir}/applications/%{name}*.desktop
-%{_iconsdir}/hicolor/*/apps/%{name}.*
+%{_iconsdir}/hicolor/*/apps/%{name}*.*
+%{_libdir}/libshotwell-plugin*
+%{_libdir}/lib%{name}-authenticator*
 #{_datadir}/GConf/gsettings/shotwell.convert
 %{_datadir}/glib-2.0/schemas/org.yorba.shotwell*.gschema.xml
+%{_datadir}/apport/package-hooks/shotwell.py*
 %{_datadir}/metainfo/shotwell.appdata.xml
+%{_mandir}/man1/%{name}.1*
