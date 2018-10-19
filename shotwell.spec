@@ -12,6 +12,7 @@ Group:		Graphics
 Url:		http://www.yorba.org/shotwell/
 Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 #Patch1:		shotwell-0.22.0-webkit2.patch
+BuildRequires:  itstool
 BuildRequires:	vala
 BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(vapigen)
@@ -67,14 +68,15 @@ find %{buildroot} -name 'lib%{name}-plugin-common.so' -delete
 %find_lang %{name} --all-name --with-gnome
 
 %files -f %{name}.lang
-%doc AUTHORS MAINTAINERS README COPYING NEWS THANKS
+%doc AUTHORS README.md NEWS THANKS
+%license COPYING
 %{_bindir}/*
-%{_libdir}/%{name}
-/usr/libexec/%{name}
-%{_datadir}/%{name}
-%{_datadir}/gnome/help/%{name}
+%{_libdir}/%{name}/
+%/usr/libexec/%{name}/
+%{_datadir}/%{name}/
+#{_datadir}/gnome/help/%{name}
 %{_datadir}/applications/%{name}*.desktop
 %{_iconsdir}/hicolor/*/apps/%{name}.*
-%{_datadir}/GConf/gsettings/shotwell.convert
+#{_datadir}/GConf/gsettings/shotwell.convert
 %{_datadir}/glib-2.0/schemas/org.yorba.shotwell*.gschema.xml
-%{_datadir}/appdata/shotwell.appdata.xml
+%{_datadir}/metainfo/shotwell.appdata.xml
