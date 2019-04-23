@@ -5,19 +5,19 @@
 
 Summary:	A photo organizer designed for GNOME
 Name:		shotwell
-Version:	0.30.2
-Release:	2
+Version:	0.31.0
+Release:	1
 License:	LGPLv2+ and CC-BY-SA
 Group:		Graphics
 Url:		http://www.yorba.org/shotwell/
 Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
-Patch1:		0002-Fix-references-to-GLib.BindingFlags.patch
 BuildRequires:  itstool
 BuildRequires:	vala
 BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(vapigen)
 BuildRequires:	meson
 BuildRequires:	pkgconfig(atk)
+BuildRequires:  pkgconfig(champlain-0.12)
 BuildRequires:	pkgconfig(gdk-3.0)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(gexiv2) >= 0.4.90
@@ -34,6 +34,7 @@ BuildRequires:	pkgconfig(libgphoto2)
 BuildRequires:	pkgconfig(libraw)
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:  pkgconfig(libwebpdemux)
 BuildRequires:	pkgconfig(rest-0.7)
 BuildRequires:	pkgconfig(unique-3.0)
 BuildRequires:	pkgconfig(webkit2gtk-4.0)
@@ -75,12 +76,14 @@ find %{buildroot} -name 'lib%{name}-plugin-common.so' -delete
 %{_libexecdir}/%{name}/*
 #{_datadir}/%{name}/
 #{_datadir}/gnome/help/%{name}
-%{_datadir}/applications/%{name}*.desktop
-%{_iconsdir}/hicolor/*/apps/%{name}*.*
+%{_datadir}/applications/org.gnome.Shotwell-Viewer.desktop
+%{_datadir}//applications/org.gnome.Shotwell.desktop
+%{_iconsdir}/hicolor/symbolic/apps/org.gnome.Shotwell-symbolic.svg
+%{_iconsdir}/hicolor/*/*/org.gnome.Shotwell.png
 %{_libdir}/libshotwell-plugin*
 %{_libdir}/lib%{name}-authenticator*
 #{_datadir}/GConf/gsettings/shotwell.convert
 %{_datadir}/glib-2.0/schemas/org.yorba.shotwell*.gschema.xml
 %{_datadir}/apport/package-hooks/*
-%{_datadir}/metainfo/shotwell.appdata.xml
+%{_datadir}/metainfo/org.gnome.Shotwell.appdata.xml
 %{_mandir}/man1/%{name}.1*
