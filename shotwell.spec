@@ -11,7 +11,6 @@ License:	LGPLv2+ and CC-BY-SA
 Group:		Graphics
 Url:		http://www.yorba.org/shotwell/
 Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
-#Patch1:		shotwell-0.22.0-webkit2.patch
 BuildRequires:  itstool
 BuildRequires:	vala
 BuildRequires:	vala-devel
@@ -52,7 +51,7 @@ mode, and export them to share with others.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %meson

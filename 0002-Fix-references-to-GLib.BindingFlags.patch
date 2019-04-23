@@ -1,0 +1,26 @@
+From a9190d5194b94578d001b3d541c38d4903e5e4d8 Mon Sep 17 00:00:00 2001
+From: Rico Tzschichholz <ricotz@ubuntu.com>
+Date: Thu, 28 Feb 2019 20:05:30 +0100
+Subject: [PATCH] publishing: Fix references to GLib.BindingFlags
+
+---
+ plugins/shotwell-publishing/PhotosPublishingPane.vala | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/plugins/shotwell-publishing/PhotosPublishingPane.vala b/plugins/shotwell-publishing/PhotosPublishingPane.vala
+index 32ccf8a7..d1b00d6a 100644
+--- a/plugins/shotwell-publishing/PhotosPublishingPane.vala
++++ b/plugins/shotwell-publishing/PhotosPublishingPane.vala
+@@ -75,8 +75,8 @@ internal class PublishingOptionsPane : Gtk.Box, Spit.Publishing.DialogPane {
+             size_combo.set_active(parameters.get_major_axis_size_selection_id());
+         }
+ 
+-        existing_album_radio.bind_property("active", existing_albums_combo, "sensitive", GLib.Binding.SYNC_CREATE);
+-        new_album_radio.bind_property("active", new_album_entry, "sensitive", GLib.Binding.SYNC_CREATE);
++        existing_album_radio.bind_property("active", existing_albums_combo, "sensitive", GLib.BindingFlags.SYNC_CREATE);
++        new_album_radio.bind_property("active", new_album_entry, "sensitive", GLib.BindingFlags.SYNC_CREATE);
+ 
+         publish_button.clicked.connect (on_publish_clicked);
+         logout_button.clicked.connect (on_logout_clicked);
+-- 
+2.18.1
