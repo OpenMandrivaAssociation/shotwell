@@ -5,7 +5,7 @@
 
 Summary:	A photo organizer designed for GNOME
 Name:		shotwell
-Version:	0.31.1
+Version:	0.31.2
 Release:	1
 License:	LGPLv2+ and CC-BY-SA
 Group:		Graphics
@@ -22,7 +22,7 @@ BuildRequires:	pkgconfig(gdk-3.0)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(gexiv2) >= 0.4.90
 BuildRequires:	pkgconfig(gee-0.8)
-BuildRequires:	pkgconfig(gnome-doc-utils)
+#BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gstreamer-1.0)
 BuildRequires:	pkgconfig(gstreamer-pbutils-1.0)
 BuildRequires:	pkgconfig(gstreamer-plugins-base-1.0)
@@ -82,8 +82,8 @@ find %{buildroot} -name 'lib%{name}-plugin-common.so' -delete
 %{_iconsdir}/hicolor/*/*/org.gnome.Shotwell.png
 %{_libdir}/libshotwell-plugin*
 %{_libdir}/lib%{name}-authenticator*
-#{_datadir}/GConf/gsettings/shotwell.convert
-%{_datadir}/glib-2.0/schemas/org.yorba.shotwell*.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.shotwell-extras.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.shotwell.gschema.xml
 %{_datadir}/apport/package-hooks/*
 %{_datadir}/metainfo/org.gnome.Shotwell.appdata.xml
 %{_mandir}/man1/%{name}.1*
