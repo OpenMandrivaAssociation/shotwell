@@ -39,6 +39,7 @@ BuildRequires:	pkgconfig(rest-0.7)
 BuildRequires:	pkgconfig(unique-3.0)
 BuildRequires:	pkgconfig(webkit2gtk-4.0)
 BuildRequires:	pkgconfig(libgdata)
+BuildRequires:  pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(gcr-3)
 BuildRequires:	gomp-devel
 BuildRequires:	pkgconfig(sqlite3)
