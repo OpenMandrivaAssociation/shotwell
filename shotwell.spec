@@ -11,6 +11,7 @@ License:	LGPLv2+ and CC-BY-SA
 Group:		Graphics
 Url:		http://www.yorba.org/shotwell/
 Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0:   shotwell-0.31.3-vapi_fixes.patch
 BuildRequires:  itstool
 BuildRequires:	vala
 BuildRequires:	vala-devel
