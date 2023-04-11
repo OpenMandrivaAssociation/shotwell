@@ -90,6 +90,8 @@ find %{buildroot} -name 'lib%{name}-plugin-common.so' -delete
 %{_libdir}/lib%{name}-authenticator*
 %{_datadir}/glib-2.0/schemas/org.gnome.shotwell-extras.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.shotwell.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.yorba.shotwell-extras.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.yorba.shotwell.gschema.xml
 %{_datadir}/apport/package-hooks/*
 %{_datadir}/metainfo/org.gnome.Shotwell.appdata.xml
 %{_mandir}/man1/%{name}.1*
