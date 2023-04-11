@@ -1,6 +1,8 @@
 %define _disable_ld_no_undefined 1
 %define Werror_cflags %nil
 
+%global optflags %{optflags} -Wno-incompatible-function-pointer-types
+
 %define url_ver		%(echo %{version} | cut -d "." -f -2)
 
 Summary:	A photo organizer designed for GNOME
