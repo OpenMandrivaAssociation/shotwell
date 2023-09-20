@@ -8,11 +8,12 @@
 Summary:	A photo organizer designed for GNOME
 Name:		shotwell
 Version:	0.32.2
-Release:	2
+Release:	3
 License:	LGPLv2+ and CC-BY-SA
 Group:		Graphics
 Url:		https://www.yorba.org/shotwell/
 Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0:		shotwell-0.32.2-no-sqlite3_trace.patch
 
 BuildRequires:  itstool
 BuildRequires:	vala
@@ -55,11 +56,10 @@ organize them in various ways, view them in full-window or fullscreen
 mode, and export them to share with others.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
+%meson
 
 %build
-%meson
 %meson_build
 
 %install

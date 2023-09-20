@@ -1,0 +1,19 @@
+diff -up shotwell-0.32.2/src/db/DatabaseTable.vala.omv~ shotwell-0.32.2/src/db/DatabaseTable.vala
+--- shotwell-0.32.2/src/db/DatabaseTable.vala.omv~	2023-09-20 15:37:15.449563981 +0200
++++ shotwell-0.32.2/src/db/DatabaseTable.vala	2023-09-20 15:37:32.494002578 +0200
+@@ -50,12 +50,13 @@ public abstract class DatabaseTable {
+             }
+         }
+ 
+-        unowned string? sql_debug = Environment.get_variable
++
++/*        unowned string? sql_debug = Environment.get_variable
+                                                          ("SHOTWELL_SQL_DEBUG");
+ 
+         if (sql_debug != null && sql_debug != "") {
+             db.trace (on_trace);
+-        }
++        } */
+     }
+ 
+     public static void on_trace (string message) {
