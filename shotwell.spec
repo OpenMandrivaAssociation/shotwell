@@ -79,11 +79,9 @@ find %{buildroot} -name 'lib%{name}-plugin-common.so' -delete
 %{_bindir}/*
 %{_libdir}/%{name}/
 %{_libexecdir}/%{name}/*
-#{_datadir}/%{name}/
-#{_datadir}/gnome/help/%{name}
-#{_datadir}/applications/org.gnome.Shotwell-Profile-Browser.desktop
 %{_datadir}/applications/org.gnome.Shotwell-Viewer.desktop
-%{_datadir}//applications/org.gnome.Shotwell.desktop
+%{_datadir}/applications/org.gnome.Shotwell.desktop
+%{_datadir}/applications/org.gnome.Shotwell.Auth.desktop
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.Shotwell-symbolic.svg
 %{_iconsdir}/hicolor/*/*/org.gnome.Shotwell.png
 %{_libdir}/libshotwell-plugin*
@@ -94,4 +92,5 @@ find %{buildroot} -name 'lib%{name}-plugin-common.so' -delete
 %{_datadir}/glib-2.0/schemas/org.yorba.shotwell.gschema.xml
 %{_datadir}/apport/package-hooks/*
 %{_datadir}/metainfo/org.gnome.Shotwell.appdata.xml
+%{_datadir}/icons/hicolor/scalable/apps/org.gnome.Shotwell.svg
 %{_mandir}/man1/%{name}.1*
