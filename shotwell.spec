@@ -7,7 +7,7 @@
 
 Summary:	A photo organizer designed for GNOME
 Name:		shotwell
-Version:	0.32.10
+Version:	33.alpha
 Release:	1
 License:	LGPLv2+ and CC-BY-SA
 Group:		Graphics
@@ -22,7 +22,6 @@ BuildRequires:	pkgconfig(vapigen)
 BuildRequires:	meson
 BuildRequires:	pkgconfig(atk)
 BuildRequires:  pkgconfig(champlain-0.12)
-BuildRequires:	pkgconfig(gdk-3.0)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(gexiv2) >= 0.4.90
 BuildRequires:	pkgconfig(gee-0.8)
@@ -30,7 +29,7 @@ BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(gstreamer-1.0)
 BuildRequires:	pkgconfig(gstreamer-pbutils-1.0)
 BuildRequires:	pkgconfig(gstreamer-plugins-base-1.0)
-BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(gtk4)
 BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libexif)
@@ -45,7 +44,7 @@ BuildRequires:	pkgconfig(unique-3.0)
 BuildRequires:	pkgconfig(webkit2gtk-4.1)
 BuildRequires:	pkgconfig(libgdata)
 BuildRequires:  pkgconfig(libsecret-1)
-BuildRequires:	pkgconfig(gcr-3)
+#BuildRequires:	pkgconfig(gcr-3)
 BuildRequires:	gomp-devel
 BuildRequires:	pkgconfig(sqlite3)
 
