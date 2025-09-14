@@ -15,6 +15,7 @@ Url:		https://www.yorba.org/shotwell/
 Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 Patch0:		shotwell-0.32.2-no-sqlite3_trace.patch
 
+BuildRequires:  desktop-file-utils
 BuildRequires:  itstool
 BuildRequires:	vala
 BuildRequires:	vala-devel
