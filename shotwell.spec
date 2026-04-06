@@ -24,7 +24,7 @@ BuildRequires:	meson
 BuildRequires:	pkgconfig(atk)
 BuildRequires:  pkgconfig(champlain-0.12)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
-BuildRequires:	pkgconfig(gexiv2) >= 0.4.90
+BuildRequires:	pkgconfig(gexiv2-0.16)
 BuildRequires:	pkgconfig(gee-0.8)
 #BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gstreamer-1.0)
