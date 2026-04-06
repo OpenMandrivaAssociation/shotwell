@@ -14,6 +14,8 @@ Group:		Graphics
 Url:		https://www.yorba.org/shotwell/
 Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 Patch0:		shotwell-0.32.2-no-sqlite3_trace.patch
+# new gexiv2 0.16
+Patch1:   https://gitlab.gnome.org/GNOME/shotwell/-/commit/b3e029ba0acf5f0b36e4a878e071a980d2e28944.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  itstool
