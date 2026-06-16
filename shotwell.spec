@@ -7,8 +7,8 @@
 
 Summary:	A photo organizer designed for GNOME
 Name:		shotwell
-Version:	33.alpha
-Release:	4
+Version:	33.alpha.2
+Release:	1
 License:	LGPLv2+ and CC-BY-SA
 Group:		Graphics
 Url:		https://www.yorba.org/shotwell/
@@ -93,6 +93,6 @@ find %{buildroot} -name 'lib%{name}-plugin-common.so' -delete
 %{_datadir}/glib-2.0/schemas/org.yorba.shotwell-extras.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.yorba.shotwell.gschema.xml
 %{_datadir}/apport/package-hooks/*
-%{_datadir}/metainfo/org.gnome.Shotwell.appdata.xml
+%{_datadir}/metainfo/org.gnome.Shotwell.metainfo.xml
 %{_datadir}/icons/hicolor/scalable/apps/org.gnome.Shotwell.svg
 %{_mandir}/man1/%{name}.1*
