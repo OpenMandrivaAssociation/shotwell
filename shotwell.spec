@@ -81,7 +81,6 @@ find %{buildroot} -name 'lib%{name}-plugin-common.so' -delete
 %{_libexecdir}/%{name}/*
 %{_datadir}/applications/org.gnome.Shotwell-Viewer.desktop
 %{_datadir}/applications/org.gnome.Shotwell.desktop
-%{_datadir}/applications/org.gnome.Shotwell.Auth.desktop
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.Shotwell-symbolic.svg
 %{_iconsdir}/hicolor/*/*/org.gnome.Shotwell.png
 %{_libdir}/libshotwell-plugin*
