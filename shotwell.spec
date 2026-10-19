@@ -7,7 +7,7 @@
 
 Summary:	A photo organizer designed for GNOME
 Name:		shotwell
-Version:	33.rc
+Version:	33.0
 Release:	1
 License:	LGPLv2+ and CC-BY-SA
 Group:		Graphics
